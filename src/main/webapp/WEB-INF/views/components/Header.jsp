@@ -38,11 +38,19 @@
 						</button>
 					</div>
 					<div class="flex space-x-4 items-center">
-						<button 
-						id="navLogInBtn"
-						onclick="handleNavLoginBtn()"
+					<c:choose>
+						<c:when test="${account == null}">	
+						<button id="navLogInBtn" onclick="handleNavLoginBtn()"
 							class="border border-transparent hover:border-gray-500 hover:rounded-lg font-[500] p-2 ">Đăng
 							nhập</button>
+						</c:when>
+						<c:otherwise>
+							<a href="/logout"
+							class="border border-transparent hover:border-gray-500 hover:rounded-lg font-[500] p-2 ">Đăng
+							Xuất</a>
+						</c:otherwise>
+					</c:choose>
+					
 						<a href=""><i class="text-xl fa-solid fa-heart"></i></a>
 						<div class="relative flex items-center  pe-4">
 							<i class="text-2xl fa-brands fa-opencart"></i> <span
@@ -63,26 +71,9 @@
 	</div>
 </div>
 
-<div
-id="loginContainer2"
+<div id="loginContainer2"
 	class="fixed h-dvh w-dvw bg-black z-30 top-0  opacity-50 flex items-center justify-center hidden">
 </div>
-<div
-id="loginContainer"
-	class="fixed h-dvh w-dvw z-40 top-0  items-center justify-center hidden">
-	<div
-		class="[&>input]:rounded-lg [&>input]:border [&>input]:border-gray-400 w-[32rem] rounded-lg bg-gray-200 shadow-lg shadow-gray-500  flex flex-col px-6 py-10 justify-center ">
-		<h2 class="text-2xl text-center uppercase font-bold font-[500] text-orange-500">Đăng nhập</h2>
-		<%-- 		<f:label for="username" path="">Username</f:label> --%>
-		<%-- 		<f:input id="username" type="text" path=""/> --%>
-		<%-- 		<f:label for="username" path="">Password</f:label> --%>
-		<%-- 		<f:input type="password" path=""/> --%>
-		<label for="username" path="">Username</label> <input id="username"
-			type="text" path="" /> <label for="username" path="">Password</label>
-		<input type="password" path="" />
-		<div class="pt-4 grid-cols-2 gap-4 grid [&>*]:px-4 [&>*]:text-white [&>*]:rounded-lg [&>*]:py-2 [&>*]:border [&>*]:border-gray-400	">
-			<button onclick="handleLoginBtn()" class="bg-blue-500">Đăng nhập</button>
-			<button class="bg-gray-400">Đăng ký</button>
-		</div>
-	</div>
-</div>
+<iframe src="/login" id="loginContainer"
+	class="fixed h-dvh w-dvw z-40 top-0 items-center justify-center hidden">
+</iframe>

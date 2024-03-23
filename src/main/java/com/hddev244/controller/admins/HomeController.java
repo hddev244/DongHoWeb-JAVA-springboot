@@ -15,9 +15,12 @@ import jakarta.servlet.http.HttpServletRequest;
 public class HomeController {
 	@Autowired
 	HttpServletRequest request;
+
 	@RequestMapping()
 	public String getIndex(Model model) {
-		request.setAttribute(ModelAttributeKey.VIEW_PAGE, PathToPage.ADMIN_HOME);
-		return "forward:/";
+		model.addAttribute( ModelAttributeKey.VIEW_PAGE, PathToPage.ADMIN_HOME );
+		return "layouts/default-layout";
 	}
+
+
 }

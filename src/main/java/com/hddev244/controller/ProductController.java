@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-import com.hddev244.model.InitData;
-import com.hddev244.model.Product;
+import com.hddev244.entity.Product;
+import com.hddev244.service.ProductService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -21,11 +20,13 @@ import jakarta.servlet.http.HttpServletRequest;
 public class ProductController {
 	@Autowired
 	HttpServletRequest request;
+	@Autowired
+	ProductService productService;
 
 	@GetMapping()
 	public String getProduct(Model model) {
 		request.setAttribute("viewsPage", "/WEB-INF/views/pages/product-page.jsp");
-		return "forward:/";
+		return "layouts/default-layout";
 	}
 
 	@GetMapping("man")
@@ -42,6 +43,6 @@ public class ProductController {
 
 	@ModelAttribute("products")
 	private List<Product> initData() {
-		return InitData.getProducts();
+		return productService.findAll();
 	}
 }

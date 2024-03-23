@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Đồng hồ MONA</title>
 <link rel="stylesheet" href="/css/swiper.css" />
+<link rel="stylesheet" href="/css/style.css" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
@@ -18,6 +19,9 @@
 	src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 </head>
 <body class="">
+<div class="success-message" id="successMessage">
+  Thêm sản phẩm thành công!
+</div>
 	<div class="">
 		<!-- Header -->
 		<%@ include file="/WEB-INF/views/components/Header.jsp"%>
@@ -31,6 +35,7 @@
 <script type="text/javascript" src="/js/common.js"></script>
 <script type="text/javascript" src="/js/swiper-bundle.min.js"></script>
 <script type="text/javascript" src="/js/script.js"></script>
+<script type="text/javascript" src="/js/cart.js"></script>
 </body>
 </html>
 </div>

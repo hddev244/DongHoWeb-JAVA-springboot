@@ -4,8 +4,8 @@
 <div
 	class="h-full w-full product-list-card [&>.swiper-button]:hover:block ">
 	<div
-		class=" swiper-wrapper [&>*>img]:h-full [&>*>img]:object-cover [&>*]:bg-center [&>*]:bg-cover [&>*]:relative [&>*>*]:block [&>*>*]:w-full  ">
-		<c:forEach var="product" items="${products}">
+		class="swiper-wrapper [&>*>img]:h-full [&>*>img]:object-cover [&>*]:bg-center [&>*]:bg-cover [&>*]:relative [&>*>*]:block [&>*>*]:w-full  ">
+		<c:forEach var="product" items="${products}">	
 			<div class="swiper-slide">
 				<%@ include file="/WEB-INF/views/components/Product-card.jsp"%>
 			</div>

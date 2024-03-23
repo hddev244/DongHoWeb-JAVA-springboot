@@ -18,7 +18,7 @@ var swiper = new Swiper(".mySwiper", {
 	},
 });
 
-var swiper = new Swiper(".product-list-card", {
+var swiper1 = new Swiper(".product-list-card", {
 	slidesPerView: 4,
 	spaceBetween: 30,
 	slidesPerGroup: 4,
@@ -29,14 +29,14 @@ var swiper = new Swiper(".product-list-card", {
 	},
 });
 
-var swiper = new Swiper(".product-detail-slide1", {
+var swiper2 = new Swiper(".product-detail-slide1", {
 	loop: true,
 	spaceBetween: 10,
 	slidesPerView: 4,
 	freeMode: true,
 	watchSlidesProgress: true,
 });
-var swiper2 = new Swiper(".product-detail-slide2", {
+var swiper3 = new Swiper(".product-detail-slide2", {
 	loop: true,
 	spaceBetween: 10,
 	navigation: {
@@ -44,6 +44,6 @@ var swiper2 = new Swiper(".product-detail-slide2", {
 		prevEl: ".swiper-button-prev",
 	},
 	thumbs: {
-		swiper: swiper,
+		swiper: swiper2,
 	},
 });

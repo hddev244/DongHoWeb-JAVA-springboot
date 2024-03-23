@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div class="p-10 [&>*>.swiper-slide]:justify-center [&>*>.swiper-slide]:items-center	 [&>*>.swiper-slide]:text-conter [&>*>.swiper-slide]:bg-white [&>*>.swiper-slide]:flex ">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<div class="p-10 [&>*>.swiper-slide]:justify-center [&>*>.swiper-slide]:items-center [&>*>.swiper-slide]:text-conter [&>*>.swiper-slide]:bg-white [&>*>.swiper-slide]:flex ">
 	<div
 		style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
 		class="swiper w-full h-full product-detail-slide2 w-full">
@@ -8,21 +9,11 @@
 			<div class="swiper-slide">
 				<img src="/images/products/product-01.png" alt="product-detail" />
 			</div>
-			<div class="swiper-slide">
-				<img src="/images/products/product-02.png" alt="product-detail" />
-			</div>
-			<div class="swiper-slide">
-				<img src="/images/products/product-03.png" alt="product-detail" />
-			</div>
-			<div class="swiper-slide">
-				<img src="/images/products/product-04.png" alt="product-detail" />
-			</div>
-			<div class="swiper-slide">
-				<img src="/images/products/product-05.png" alt="product-detail" />
-			</div>
-			<div class="swiper-slide">
-				<img src="/images/products/product-06.png" alt="product-detail" />
-			</div>
+			<c:forEach var="img" items="${product.images}">	
+				<div class="swiper-slide">
+					<img src="${img.url}" alt="product-detail" />
+				</div>
+			</c:forEach>
 		</div>
 		<div class="swiper-button-next text-gray-300 "></div>
 		<div class="swiper-button-prev text-gray-300 "></div>
@@ -32,21 +23,11 @@
 			<div class="swiper-slide swiper-slide-thumb-active">
 				<img src="/images/products/product-01.png" alt="product-detail" />
 			</div>
-			<div class="swiper-slide">
-				<img src="/images/products/product-02.png" alt="product-detail" />
-			</div>
-			<div class="swiper-slide">
-				<img src="/images/products/product-03.png" alt="product-detail" />
-			</div>
-			<div class="swiper-slide">
-				<img src="/images/products/product-04.png" alt="product-detail" />
-			</div>
-			<div class="swiper-slide">
-				<img src="/images/products/product-05.png" alt="product-detail" />
-			</div>
-			<div class="swiper-slide">
-				<img src="/images/products/product-06.png" alt="product-detail" />
-			</div>
+			<c:forEach var="img" items="${product.images}">	
+				<div class="swiper-slide">
+					<img src="${img.url}" alt="product-detail" />
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 </div>

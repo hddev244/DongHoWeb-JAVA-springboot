@@ -1,0 +1,35 @@
+.success-message {
+  display: none; /* Ẩn ban đầu */
+  background-color: #4CAF50; /* Màu nền xanh lá cây */
+  color: white; /* Màu chữ trắng */
+  text-align: center; /* Căn giữa nội dung */
+  padding: 20px; /* Khoảng cách lề */
+  position: fixed; /* Hiển thị cố định trên cửa sổ trình duyệt */
+  z-index: 1000; /* Hiển thị phía trên mọi nội dung khác */
+  width: 300px; /* Chiều rộng 100% */
+  top: 110px; /* Top 0 */
+  right: -200px; /* Left 0 */
+  animation: slidein 0.5s forwards, slidedown 0.5s 1s forwards;
+  border-radius: 6px;
+}
+/* Hiệu ứng slide-in */
+@keyframes slidein {
+  from {
+    right: -200px; /* Bắt đầu từ vị trí phải -200px */
+  }
+  to {
+    right: 12px; /* Kết thúc ở vị trí phải 12px */
+  }
+}
+
+/* Hiệu ứng slide-down */
+@keyframes slidedown {
+  from {
+    top: 110px; /* Bắt đầu từ vị trí top -50px */
+    opacity: 1; /* Độ mờ 0 */
+  }
+  to {
+    top: 250px; /* Kết thúc ở vị trí top 12px */
+    opacity: 0; /* Độ mờ 1 */
+  }
+}

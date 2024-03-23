@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <section class="w-full">
 	<div class="grid grid-cols-2 w-[1080px] m-auto">
 		<div>
@@ -8,17 +9,18 @@
 		</div>
 		<div class="flex flex-col pt-24 space-y-1">
 			<h1 class="text-4xl uppercase font-[700] ">Casio</h1>
-			<span class="text-xl uppercase text-gray-500 font-[500] " >Casio A168WG-9WDF – Nam/Nữ – Kính Nhựa – Quartz (Pin) – Mặt Số
-				38.6mm, Bộ Bấm Giờ, Chống Nước 3ATM</span>
+			<span class="text-xl uppercase text-gray-500 font-[500] " >${product.name} – ${product.brand.name}  – ${product.genderSpecific? "Nam": "Nữ"}</span>
 			<span class="text-md uppercase text-gray-500">Mã Số Sản Phẩm: A168WG-9WDF</span>
-			 <span class="text-xl uppercase text-red-600 font-[600] ">1.762.000 ₫</span> 
+			 <span class="text-xl uppercase text-red-600 font-[600] "><fmt:formatNumber value="${product.price*1000}" type="number" /> ₫</span> 
 			 <i class="text-gray-500 text-md">Đồng
 				hồ Casio A168WG-9WDF với hình dáng truyền thống của hãng, phù hợp
 				cho cả nam lẫn nữ, tông màu vàng chủ đạo từng chi tiết vỏ, mặt số và
 				dây đeo tạo nên thời trang sang trọng, quý phái và thanh lịch.</i>
 			<div class="flex py-4 flex-col text-white [&>*]:border [&>*]:p-2 [&>*]:rounded-lg space-y-2">
 				<button class="bg-gray-500 uppercase">Xem showroom còn hàng</button>
-				<button class="bg-red-800 uppercase font-bold">Thêm vào giỏ hàng</button>
+				<button 
+					data-productId="${product.id}"
+					class="add-to-cart-btn bg-red-800 uppercase font-bold">Thêm vào giỏ hàng</button>
 				<button class="bg-blue-500">Mua trả góp - duyệt hồ sơ trong 3 phút</button>
 
 			</div>

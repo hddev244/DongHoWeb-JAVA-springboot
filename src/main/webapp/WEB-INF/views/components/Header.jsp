@@ -9,7 +9,7 @@
 		class="w-full flex justify-center h-10 border-neutral-600 border-b  z-50">
 		<div
 			class="w-[1080px] h-full flex justify-between [&>*]:items-center [&>*]:flex ">
-			<div class="space-x-2 text-sm">
+	 		<div class="space-x-2 text-sm">
 				<i class="far fa-map"></i><span class="me-2"> 137 Nguyễn Thị
 					Thập - Hòa Minh - Liên Chiểu - ĐN</span> <i class="fas fa-phone"></i><span>0847
 					511 175</span>
@@ -30,19 +30,21 @@
 						<a href="/"><img class="h-16"
 							src="/images/logos/logo-mona-2.png" alt="logo" /></a>
 					</div>
-					<div class="flex rounded-lg overflow-hidden">
-						<input placeholder="Tìm kiêm..." type="text"
-							class="border-0 text-gray-900" />
-						<button class="px-6 bg-[#C89979]">
-							<i class="fa-solid fa-magnifying-glass"></i>
+					<div class="flex w-96 rounded-lg  relative">
+						<input id="searchProductNav" placeholder="Tìm kiêm..." type="text"
+							class="border-0 rounded-s-lg flex-1 text-gray-900" />
+						<button class="px-6 bg-[#C89979] rounded-e-lg">
+							<i class="fa-solid fa-magnifying-glass "></i>
 						</button>
+            <div id="searchProductNav-show" class ="z-50 w-96 flex flex-col bg-gray-200 bottom-[-8px] hidden py-2 text-black translate-y-[100%] absolute">
+            </div>
 					</div>
 					<div class="flex space-x-4 items-center">
 					<c:choose>
 						<c:when test="${account == null}">	
-						<button id="navLogInBtn" onclick="handleNavLoginBtn()"
+						<a href="/login" onclick="handleNavLoginBtn()"
 							class="border border-transparent hover:border-gray-500 hover:rounded-lg font-[500] p-2 ">Đăng
-							nhập</button>
+							nhập</a>
 						</c:when>
 						<c:otherwise>
 							<a href="/logout"
@@ -51,11 +53,15 @@
 						</c:otherwise>
 					</c:choose>
 					
-						<a href=""><i class="text-xl fa-solid fa-heart"></i></a>
+						<a href="/cart">
 						<div class="relative flex items-center  pe-4">
-							<i class="text-2xl fa-brands fa-opencart"></i> <span
-								class="absolute block text-sm bg-yellow-700 size-5 text-center rounded-full right-0 bottom-[-8px]">2</span>
+							<i class="text-2xl fa-brands fa-opencart"></i>
+							 <span id="cart-counter"
+								class="absolute block text-sm bg-yellow-700 size-5 text-center rounded-full right-0 bottom-[-8px]">
+								0
+								</span>
 						</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -63,17 +69,24 @@
 				class="navigation w-full bg-[#333333] h-14 border-neutral-600 border-t overflow-hidden "
 				id="navbar">
 				<div class="max-w-[1080px] h-full m-auto ">
-					<!-- Navbar -->
-					<%@ include file="./Navbar.jsp"%>
+
+					<c:choose>
+						<c:when test="${account != null}">	
+							<c:choose>
+								<c:when test="${account.admin}">	
+									<%@ include file="../admin/components/Navbar.jsp"%>
+								</c:when>
+								<c:otherwise>
+									<%@ include file="../components/Navbar.jsp"%>
+								</c:otherwise>
+							</c:choose>
+						</c:when>
+						<c:otherwise>
+							<%@ include file="../components/Navbar.jsp"%>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-<div id="loginContainer2"
-	class="fixed h-dvh w-dvw bg-black z-30 top-0  opacity-50 flex items-center justify-center hidden">
-</div>
-<iframe src="/login" id="loginContainer"
-	class="fixed h-dvh w-dvw z-40 top-0 items-center justify-center hidden">
-</iframe>
